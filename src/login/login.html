@@ -1,0 +1,9 @@
+<div class="container">
+    <a ui-sref="home" class="nav-link">Home</a>
+    <h2>Login page</h2>
+    <form ng-submit="loginMethod()">
+        <input type="text" class="login__username-input" placeholder="Please input username!" ng-model="loginUsername" />
+        <input type="password" class="login__password-input" placeholder="Please input password!" ng-model="loginPassword" />
+        <button class="btn btn-success login__submit-btn">Login</button>
+    </form>
+</div>

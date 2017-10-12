@@ -1,0 +1,22 @@
+.login{
+    &__username-input, &__password-input{
+        margin: 0 auto 5px;
+        width: 300px;
+    }
+
+    &__submit-btn{
+        display: block;
+        margin: 0 auto 20px;
+    }
+
+    &__user{
+        &--selected{
+            text-decoration: line-through;
+        }
+    }
+}
+
+th, td{
+    font-size: 20px;
+    text-align: center;
+}
