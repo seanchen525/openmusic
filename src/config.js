@@ -2,8 +2,10 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import loginController from 'login/loginController';
 import loginFactory from 'factories/loginFactory';
+import signupController from 'signup/signupController';
+import signupFactory from 'factories/signupFactory';
 
-const app = angular.module('app', [uiRouter, loginFactory.name]);
+const app = angular.module('app', [uiRouter, loginFactory.name, signupFactory.name]);
 
 app.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
     $urlRouterProvider.otherwise('/');
@@ -20,7 +22,8 @@ app.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
         })
         .state('signup', {
             url: '/signup',
-            template: require('signup/signup.html')
+            template: require('signup/signup.html'),
+            controller: signupController
         });
     
     $locationProvider.html5Mode(true);    

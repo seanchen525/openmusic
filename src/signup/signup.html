@@ -1,4 +1,27 @@
 <div class="container">
     <a ui-sref="home" class="nav-link">Home</a>
     <h2>signup page</h2>
+    <form name="signupForm" ng-submit="signupMethod()">
+        <p>
+            <input type="text" name="signupUsername" ng-minlength="4" ng-maxlength="20" class="signup__username-input" placeholder="Please input username!" ng-model="signupUsername" required />
+            <span class="text-danger" ng-show="signupForm.signupUsername.$dirty && signupForm.signupUsername.$invalid">
+                <span ng-show="signupForm.signupUsername.$error.required">Username is required!</span>
+            </span>
+        </p>
+        <p>
+            <input type="email" name="signupEmail" class="signup__email-input" placeholder="Please input E-mail!" ng-model="signupEmail" required />
+            <span class="text-danger" ng-show="signupForm.signupEmail.$dirty && signupForm.signupEmail.$invalid">
+                <span ng-show="signupForm.signupEmail.$error.required">E-mail is required!</span>
+                <span ng-show="signupForm.signupEmail.$error.email">E-mail is invalid!</span>
+            </span>
+        </p>
+        <p>
+            <input type="password" class="signup__password-input" placeholder="Please input password!" ng-model="signupPassword" required />
+        </p>
+        <p>
+            <input type="password" class="signup__confirm-password-input" placeholder="Confirm password!" ng-model="signupConfirmPassword" />
+        </p>
+        <button class="btn btn-success signup__submit-btn">Register</button>
+        <a ui-sref="login" class="btn btn-info">Login</a>
+    </form>
 </div>

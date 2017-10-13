@@ -5,8 +5,9 @@ export default function($scope, loginFactory){
         username: $scope.loginUsername,
         password: $scope.loginPassword
     };
+    
+    $scope.$watch('loginUsername', val => { params.username = $scope.loginUsername;});
+    $scope.$watch('loginPassword', val => { params.password = $scope.loginPassword;});
 
-    $scope.loginMethod = loginFactory.login.bind(this, $scope, params);
-    // $scope.loginMethod = _.partial(loginFactory.login, $scope, params);
-
+    $scope.loginMethod = _.partial(loginFactory.login, $scope, params);
 }
