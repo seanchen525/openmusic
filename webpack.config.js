@@ -7,15 +7,15 @@ module.exports = {
         'webpack-dev-server/client?http://127.0.0.1:8080/',
         'webpack/hot/only-dev-server',
         'bootstrap-loader',
-        './src'
+        './client/app'
     ],
     output: {
-        path: path.join(__dirname, 'public'),
+        path: path.join(__dirname, 'client/public'),
         filename: 'bundle.js'
     },
     resolve: {
-        modules: ['node_modules', 'src'],
-        extensions: ['.js']
+        modules: ['node_modules', 'client', 'server'],
+        extensions: ['.js', '.scss']
     },
     module: {
         rules: [
@@ -27,7 +27,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.html$/,
+                test: /\.(html|css)$/,
                 exclude: /node_modules/,
                 use: [
                     'raw-loader'
@@ -45,7 +45,8 @@ module.exports = {
             {
                 test: /\.(woff2?|ttf|eot|svg)$/,
                 use: [
-                    'url-loader?limit=10000'
+                    'url-loader?limit=10000',
+                    'file-loader'
                 ]
             },
             {

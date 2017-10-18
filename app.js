@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var routes = require('server/routes');
+var routes = require('./server/routes/index');
 var body = require('body-parser')
 
 var port = process.env.port || 3000;
